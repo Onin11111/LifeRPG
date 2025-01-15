@@ -1,0 +1,95 @@
+let name;
+let stats = [18, 100, 100, 500]; // Age, Health, Happiness, Money
+let job = "Jobless";
+let isAlive = true;
+
+function startGame() {
+    name = document.getElementById("charName").value;
+    if (name.trim() === "") {
+        alert("Please enter your name!");
+        return;
+    }
+    document.getElementById("welcomeMessage").innerText = `Hello ${name}! Let's see how your life goes.`;
+    document.getElementById("charNamePrompt").style.display = "none";
+    document.getElementById("gameActions").style.display = "block";
+    updateStats();
+}
+
+function updateStats() {
+    document.getElementById("lifeStats").innerText = `
+        Name: ${name}
+        Age: ${stats[0]}
+        Health: ${stats[1]}
+        Happiness: ${stats[2]}
+        Money: ₱${stats[3]}
+        Job: ${job}
+    `;
+}
+
+function ageUp() {
+    stats[0]++;
+    stats[1] = Math.max(stats[1] - 10, 0);
+    stats[2] = Math.max(stats[2] - 5, 0);
+    if (stats[1] <= 0) {
+        alert("You have died due to low health. Game over!");
+        isAlive = false;
+        endGame();
+    }
+    updateStats();
+}
+
+function work() {
+    let jobOffers = ["Software Developer", "Data Analyst", "Web Designer"];
+    job = jobOffers[Math.floor(Math.random() * jobOffers.length)];
+    let pay = Math.floor(Math.random() * 1001) + 1000;
+    stats[3] += pay;
+    stats[1] -= 10;
+    stats[2] += 5;
+    alert(`You got a job as a ${job} with an annual pay of ₱${pay}.`);
+    updateStats();
+}
+
+function shop() {
+    let choice = prompt("Shop: 1. Health Potion (+30 Health | -₱100) 2. Happiness Book (+20 Happiness | -₱150)");
+    if (choice == "1" && stats[3] >= 100) {
+        stats[1] = Math.min(stats[1] + 30, 100);
+        stats[3] -= 100;
+        alert("You bought a Health Potion!");
+    } else if (choice == "2" && stats[3] >= 150) {
+        stats[2] = Math.min(stats[2] + 20, 100);
+        stats[3] -= 150;
+        alert("You bought a Happiness Book!");
+    } else {
+        alert("Not enough money or invalid choice.");
+    }
+    updateStats();
+}
+
+function gamble() {
+    let bet = prompt("How much would you like to bet?");
+    if (bet > stats[3]) {
+        alert("You don't have enough money.");
+        return;
+    }
+    let guess = prompt("Guess the color: 1. Red 2. Blue 3. Green");
+    let randomColor = Math.floor(Math.random() * 3) + 1;
+    if (parseInt(guess) === randomColor) {
+        stats[3] += bet * 2;
+        alert(`You guessed correctly! You won ₱${bet * 2}.`);
+    } else {
+        stats[3] -= bet;
+        alert(`You guessed wrong. You lost ₱${bet}.`);
+    }
+    updateStats();
+}
+
+function retire() {
+    alert("You have retired. Thank you for playing!");
+    isAlive = false;
+    endGame();
+}
+
+function endGame() {
+    document.getElementById("gameActions").style.display = "none";
+    document.getElementById("welcomeMessage").innerText = "Game Over!";
+}
