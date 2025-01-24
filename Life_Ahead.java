@@ -39,12 +39,13 @@ public class Life_Ahead {
         while (isAlive) {
             System.out.println();
             System.out.println(space);
+            System.out.println(space);
             System.out.println(YELLOW + bold + "[--- Life Stats ---]" + reset + RESET);
             System.out.println(LIGHT_GREEN + "[Name: " + bold + name + reset + LIGHT_GREEN + "]" + reset + RESET);
             System.out.println(LIGHT_GREEN + "[Age: " + bold + stats[0] + reset + LIGHT_GREEN + "]" + reset + RESET);
             System.out.println(BRIGHT_GREEN + "[Health: " + bold + stats[1] + reset + BRIGHT_GREEN + "]" + reset + RESET);
             System.out.println(NEON_GREEN + "[Happiness: " + bold + stats[2] + reset + LIGHT_GREEN + "]" + reset + RESET);
-            System.out.println(LIME_GREEN + "[Money: " + bold + stats[3] + reset + LIGHT_GREEN + "]" + reset + RESET);
+            System.out.println(LIME_GREEN + "[Money: ₱" + bold + stats[3] + reset + LIGHT_GREEN + "]" + reset + RESET);
             System.out.println(LIME_GREEN + "[" + bold + job + " | " + pay + reset + LIGHT_GREEN + "]" + reset + RESET);
 
             System.out.println(space);
