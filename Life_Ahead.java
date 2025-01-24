@@ -1394,7 +1394,7 @@ public class Life_Ahead {
                     break;
 
                 case 5:
-                    System.out.println("\n[You have retired. Thank you for playing!]")
+                    System.out.println("\n[You have retired. Thank you for playing!]");
 
                     isAlive = false;
                     break;
