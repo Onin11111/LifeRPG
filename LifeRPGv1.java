@@ -22,6 +22,7 @@ public class LifeRPGv1 {
 
         String name, space;
         String job = "Jobless";
+        int pay = 0;
         int[] stats = {18, 100, 100, 500, 19};
 
         space = "__________________";
@@ -69,6 +70,7 @@ public class LifeRPGv1 {
             System.out.println(BRIGHT_GREEN + "[Health: " + bold + stats[1] + reset + BRIGHT_GREEN + "]" + reset + RESET);
             System.out.println(NEON_GREEN + "[Happiness: " + bold + stats[2] + reset + LIGHT_GREEN + "]" + reset + RESET);
             System.out.println(LIME_GREEN + "[Money: " + bold + stats[3] + reset + LIGHT_GREEN + "]" + reset + RESET);
+            System.out.println(LIME_GREEN + "[" + bold + job + " | " + pay + reset + LIGHT_GREEN + "]" + reset + RESET);
 
             System.out.println(space);
             System.out.println(YELLOW + bold + "[--- Choose an action ---]" + reset);
@@ -83,17 +85,17 @@ public class LifeRPGv1 {
 
             switch (actionChoice) {
                 case 1:
-                    System.out.println(LIME_GREEN + "\n[You're getting older...]" + RESET);
-                    System.out.println(LIME_GREEN + "[You've turned " + stats[4] + "]" + RESET);
+                    System.out.println(LIGHT_GREEN + "\n[You're getting older...]" + RESET);
+                    System.out.println(LIGHT_GREEN + "[You've turned " + stats[4] + "]" + RESET);
                     
                     int event = oninr.nextInt(28);
 
                     switch (event) {
                         case 1:
-                            System.out.println(YELLOW + "\nEvent: 🍴 Lunch Break");
-                            System.out.println(YELLOW + "\nIt's lunchtime, and you're deciding where to eat.");
-                            System.out.println(LIME_GREEN + "[1] [🍛 Eat at a local carinderia]");
-                            System.out.println(LIME_GREEN + "[2] [🍔 Go to a fast-food chain]");
+                            System.out.println(YELLOW + "\nEvent: 🍴 Lunch Break" + RESET);
+                            System.out.println(YELLOW + "\nIt's lunchtime, and you're deciding where to eat." + RESET);
+                            System.out.println(GREEN + "[1] [🍛 Eat at a local carinderia]" + RESET);
+                            System.out.println(GREEN + "[2] [🍔 Go to a fast-food chain]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice1 = onins.nextInt();
 
@@ -106,19 +108,19 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
 
-                                System.out.println(LIME_GREEN + "\n[You enjoyed a simple, affordable meal that kept you satisfied.]" + RESET);
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: + " + happinessGain + " ] " + RESET + BRIGHT_RED + " [ Cost: - " + cost + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You enjoyed a simple, affordable meal that kept you satisfied.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: + " + happinessGain + " ] " + RESET + BRIGHT_RED + " [ Cost: - " + cost + " ] " + RESET);
 
                             } else if (eventChoice1 == 2) {
                                 int healthGain = oninr.nextInt(11) + 5;
                                 int happinessGain = oninr.nextInt(16) + 5;
-                                int cost = oninr.nextInt(101) + 100;
+                                int cost = oninr.nextInt(151) + 100;
 
                                 stats[1] -= healthGain;
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
 
-                                System.out.println(LIME_GREEN+ "\n[You splurged on fast food, which lifted your mood but wasn’t the healthiest choice.]");
+                                System.out.println(GREEN + "\n[You splurged on fast food, which lifted your mood but wasn’t the healthiest choice.]" + RESET);
                                 System.out.println(BRIGHT_RED + "[Health: -" + healthGain + " ] " + RESET + BRIGHT_RED + "[ Happiness: -" + happinessGain + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
@@ -126,14 +128,14 @@ public class LifeRPGv1 {
                             break;
 
                         case 2:
-                            System.out.println("\n[Nothing happened this year.]");
+                            System.out.println(YELLOW + "\n[Nothing happened this year.]" + RESET);
                             break;
                 
                         case 3:
-                            System.out.println(YELLOW + "\nEvent: 🌧️ Bad Weather");
-                            System.out.println(YELLOW + "\nA storm has passed through the area. You're deciding what to do.");
-                            System.out.println(LIME_GREEN + "[1] [☔ Stay indoors and relax]");
-                            System.out.println(LIME_GREEN + "[2] [🌬️ Brave the weather and go for a walk]");
+                            System.out.println(YELLOW + "\nEvent: 🌧️ Bad Weather" + RESET);
+                            System.out.println(YELLOW + "\nA storm has passed through the area. You're deciding what to do." + RESET);
+                            System.out.println(GREEN + "[1] [☔ Stay indoors and relax]" + RESET);
+                            System.out.println(GREEN + "[2] [🌬️ Brave the weather and go for a walk]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice3 = onins.nextInt();
                         
@@ -146,8 +148,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You enjoyed the comfort of your home while staying dry, but it cost you a bit.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You enjoyed the comfort of your home while staying dry, but it cost you a bit.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice3 == 2) {
                                 int healthGain = oninr.nextInt(6) + 0;
                                 int happinessLoss = oninr.nextInt(16) + 10;
@@ -157,18 +159,18 @@ public class LifeRPGv1 {
                                 stats[2] -= happinessLoss;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You braved the storm and felt refreshed after a walk, but the weather wasn’t enjoyable.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You braved the storm and felt refreshed after a walk, but the weather wasn’t enjoyable.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 4:
-                            System.out.println(YELLOW + "\nEvent: 🛒 Shopping Spree");
-                            System.out.println(YELLOW + "\nYou have some extra cash and you're thinking of treating yourself.");
-                            System.out.println(LIME_GREEN + "[1] [🛍️ Buy new clothes]");
-                            System.out.println(LIME_GREEN + "[2] [🎮 Buy a new game]");
+                            System.out.println(YELLOW + "\nEvent: 🛒 Shopping Spree" + RESET);
+                            System.out.println(YELLOW + "\nYou have some extra cash and you're thinking of treating yourself." + RESET);
+                            System.out.println(GREEN + "[1] [🛍️ Buy new clothes]" + RESET);
+                            System.out.println(GREEN + "[2] [🎮 Buy a new game]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice4 = onins.nextInt();
                         
@@ -179,8 +181,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You bought some new clothes and feel great about it.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You bought some new clothes and feel great about it.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice4 == 2) {
                                 int happinessGain = oninr.nextInt(16) + 10;
                                 int healthLoss = oninr.nextInt(26) + 20;
@@ -190,18 +192,18 @@ public class LifeRPGv1 {
                                 stats[1] -= healthLoss;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You got a new game! It was a lot of fun, but you spent a bit too much.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You got a new game! It was a lot of fun, but you spent a bit too much.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 5:
-                            System.out.println(YELLOW + "\nEvent: 🚴‍♀️ Weekend Adventure");
-                            System.out.println(YELLOW + "\nIt's the weekend! You have a free day to explore.");
-                            System.out.println(LIME_GREEN + "[1] [🏞️ Go for a nature hike]");
-                            System.out.println(LIME_GREEN + "[2] [🎡 Visit a theme park]");
+                            System.out.println(YELLOW + "\nEvent: 🚴‍♀️ Weekend Adventure" + RESET);
+                            System.out.println(YELLOW + "\nIt's the weekend! You have a free day to explore." + RESET);
+                            System.out.println(GREEN + "[1] [🏞️ Go for a nature hike]" + RESET);
+                            System.out.println(GREEN + "[2] [🎡 Visit a theme park]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice5 = onins.nextInt();
                         
@@ -214,8 +216,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You spent the day outdoors, which gave you a boost in health and mood.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You spent the day outdoors, which gave you a boost in health and mood.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice5 == 2) {
                                 int healthGain = oninr.nextInt(6) + 0;
                                 int happinessGain = oninr.nextInt(16) + 5;
@@ -225,8 +227,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a blast at the theme park, but it was a bit expensive.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You had a blast at the theme park, but it was a bit expensive.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
@@ -234,9 +236,9 @@ public class LifeRPGv1 {
                         
                         case 6:
                             System.out.println(YELLOW + "\nEvent: 🎉 Birthday Party");
-                            System.out.println(YELLOW + "\nIt's your friend's birthday party. You're invited, but you're not sure if you should go.");
-                            System.out.println(LIME_GREEN + "[1] [🎂 Attend the party]");
-                            System.out.println(LIME_GREEN + "[2] [🚶‍♀️ Stay home and relax]");
+                            System.out.println(YELLOW + "\nIt's your friend's birthday party. You're invited, but you're not sure if you should go." + RESET);
+                            System.out.println(GREEN + "[1] [🎂 Attend the party]" + RESET);
+                            System.out.println(GREEN + "[2] [🚶‍♀️ Stay home and relax]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice6 = onins.nextInt();
                         
@@ -249,8 +251,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a great time at the party, but it cost you a bit.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You had a great time at the party, but it cost you a bit.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice6 == 2) {
                                 int healthGain = oninr.nextInt(11) + 5;
                                 int happinessLoss = oninr.nextInt(11) + 5;
@@ -258,18 +260,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] -= happinessLoss;
                         
-                                System.out.println(LIME_GREEN + "\n[You enjoyed a quiet day at home, but missed out on the fun.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You enjoyed a quiet day at home, but missed out on the fun.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
 
                         case 7:
-                            System.out.println(YELLOW + "\nEvent: 🐾 Adopt a Pet");
-                            System.out.println(YELLOW + "\nYou’re considering adopting a pet. It could bring joy, but it's a big responsibility.");
-                            System.out.println(LIME_GREEN + "[1] [🐱 Adopt a cat]");
-                            System.out.println(LIME_GREEN + "[2] [🐶 Adopt a dog]");
+                            System.out.println(YELLOW + "\nEvent: 🐾 Adopt a Pet" + RESET);
+                            System.out.println(YELLOW + "\nYou’re considering adopting a pet. It could bring joy, but it's a big responsibility." + RESET);
+                            System.out.println(GREEN + "[1] [🐱 Adopt a cat]" + RESET);
+                            System.out.println(GREEN + "[2] [🐶 Adopt a dog]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice7 = onins.nextInt();
                         
@@ -282,8 +284,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You adopted a cat, and it brought you some joy, but it's a bit of work.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You adopted a cat, and it brought you some joy, but it's a bit of work.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice7 == 2) {
                                 int happinessGain = oninr.nextInt(11) + 10;
                                 int healthLoss = oninr.nextInt(16) + 10;
@@ -293,7 +295,7 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You adopted a dog, and it made you very happy, but it’s a lot of work.]");
+                                System.out.println(GREEN + "\n[You adopted a dog, and it made you very happy, but it’s a lot of work.]" + RESET);
                                 System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
@@ -301,10 +303,10 @@ public class LifeRPGv1 {
                             break;
                         
                         case 8:
-                            System.out.println(YELLOW + "\nEvent: 🎬 Movie Night");
-                            System.out.println(YELLOW + "\nIt's the weekend, and you're deciding whether to watch a movie.");
-                            System.out.println(LIME_GREEN + "[1] [🍿 Watch a movie at the theater");
-                            System.out.println(LIME_GREEN + "[2] [📱 Stream a movie at home]");
+                            System.out.println(YELLOW + "\nEvent: 🎬 Movie Night" + RESET);
+                            System.out.println(YELLOW + "\nIt's the weekend, and you're deciding whether to watch a movie." + RESET);
+                            System.out.println(GREEN + "[1] [🍿 Watch a movie at the theater" + RESET);
+                            System.out.println(GREEN + "[2] [📱 Stream a movie at home]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice8 = onins.nextInt();
                         
@@ -317,8 +319,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You enjoyed the movie theater experience, but the popcorn wasn't the healthiest choice.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You enjoyed the movie theater experience, but the popcorn wasn't the healthiest choice.]");
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice8 == 2) {
                                 int happinessGain = oninr.nextInt(11) + 5;
                                 int healthGain = oninr.nextInt(6) + 0;
@@ -328,18 +330,18 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You relaxed with a movie at home, and you feel healthier afterwards.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You relaxed with a movie at home, and you feel healthier afterwards.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 9:
-                            System.out.println(YELLOW + "\nEvent: 📚 Study Break");
-                            System.out.println(YELLOW + "\nYou've been studying a lot lately. It's time for a short break.");
-                            System.out.println(LIME_GREEN + "[1] [🍵 Drink tea and relax]");
-                            System.out.println(LIME_GREEN + "[2] [📱 Scroll through social media]");
+                            System.out.println(YELLOW + "\nEvent: 📚 Study Break" + RESET);
+                            System.out.println(YELLOW + "\nYou've been studying a lot lately. It's time for a short break." + RESET);
+                            System.out.println(GREEN + "[1] [🍵 Drink tea and relax]" + RESET);
+                            System.out.println(GREEN + "[2] [📱 Scroll through social media]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice9 = onins.nextInt();
                         
@@ -352,8 +354,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a calming tea break and feel a bit better.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You had a calming tea break and feel a bit better.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice9 == 2) {
                                 int happinessGain = oninr.nextInt(6) + 10;
                                 int healthLoss = oninr.nextInt(6) + 5;
@@ -363,18 +365,18 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You had fun scrolling through social media, but it wasn’t the healthiest break.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You had fun scrolling through social media, but it wasn’t the healthiest break.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[ Cost: - " + cost + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 10:
-                            System.out.println(YELLOW + "\nEvent: 💻 Work Overtime");
-                            System.out.println(YELLOW + "\nYour boss has asked you to stay overtime and finish an important project.");
-                            System.out.println(LIME_GREEN + "[1] [💼 Work overtime]");
-                            System.out.println(LIME_GREEN + "[2] [⏰ Decline and leave on time]");
+                            System.out.println(YELLOW + "\nEvent: 💻 Work Overtime" + RESET);
+                            System.out.println(YELLOW + "\nYour boss has asked you to stay overtime and finish an important project." + RESET);
+                            System.out.println(GREEN + "[1] [💼 Work overtime]" + RESET);
+                            System.out.println(GREEN + "[2] [⏰ Decline and leave on time]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice10 = onins.nextInt();
                         
@@ -387,7 +389,7 @@ public class LifeRPGv1 {
                                 stats[2] -= happinessGain;
                                 stats[3] += cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You worked late and completed the project, but you're feeling drained.]");
+                                System.out.println(GREEN + "\n[You worked late and completed the project, but you're feeling drained.]" + RESET);
                                 System.out.println(BRIGHT_RED + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + LIGHT_GREEN + "[ Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice10 == 2) {
                                 int healthGain = oninr.nextInt(11) + 5;
@@ -396,18 +398,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] -= happinessLoss;
                         
-                                System.out.println(LIME_GREEN + "\n[You left work on time and felt better, but you're a bit disappointed.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You left work on time and felt better, but you're a bit disappointed.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 11:
-                            System.out.println(YELLOW + "\nEvent: 🌳 Nature Walk");
-                            System.out.println(YELLOW + "\nYou decide to take a break and go for a walk in the park to clear your mind.");
-                            System.out.println(LIME_GREEN + "[1] [🚶‍♂️ Take a relaxing walk in the park]");
-                            System.out.println(LIME_GREEN + "[2] [🧘‍♀️ Do some light exercise at the park]");
+                            System.out.println(YELLOW + "\nEvent: 🌳 Nature Walk" + RESET);
+                            System.out.println(YELLOW + "\nYou decide to take a break and go for a walk in the park to clear your mind." + RESET);
+                            System.out.println(GREEN + "[1] [🚶‍♂️ Take a relaxing walk in the park]" + RESET);
+                            System.out.println(GREEN + "[2] [🧘‍♀️ Do some light exercise at the park]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice11 = onins.nextInt();
                         
@@ -418,8 +420,8 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a peaceful walk in nature, which improved both your health and mood.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You had a peaceful walk in nature, which improved both your health and mood.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
                             } else if (eventChoice11 == 2) {
                                 int healthGain = oninr.nextInt(16) + 10;
                                 int happinessGain = oninr.nextInt(16) + 10;
@@ -427,18 +429,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You exercised in the park, feeling revitalized and much happier.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You exercised in the park, feeling revitalized and much happier.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 12:
-                            System.out.println(YELLOW + "\nEvent: 🏠 Home Improvement");
-                            System.out.println(YELLOW + "\nYou’ve been thinking about redecorating or fixing up your living space.");
-                            System.out.println(LIME_GREEN + "[1] [🖼️ Buy new furniture and redecorate]");
-                            System.out.println(LIME_GREEN + "[2] [🔨 Do the repairs yourself]");
+                            System.out.println(YELLOW + "\nEvent: 🏠 Home Improvement" + RESET);
+                            System.out.println(YELLOW + "\nYou’ve been thinking about redecorating or fixing up your living space." + RESET);
+                            System.out.println(GREEN + "[1] [🖼️ Buy new furniture and redecorate]" + RESET);
+                            System.out.println(GREEN + "[2] [🔨 Do the repairs yourself]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice12 = onins.nextInt();
                         
@@ -451,8 +453,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You redecorated your space, and it made your home more comfortable and pleasant.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You redecorated your space, and it made your home more comfortable and pleasant.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice12 == 2) {
                                 int healthGain = oninr.nextInt(11) + 10;
                                 int happinessGain = oninr.nextInt(11) + 5;
@@ -462,18 +464,18 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You did the repairs yourself, and it felt rewarding to improve your living space.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You did the repairs yourself, and it felt rewarding to improve your living space.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 13:
-                            System.out.println(YELLOW + "\nEvent: 💼 Business Opportunity");
-                            System.out.println(YELLOW + "\nA friend invites you to start a small business together. It sounds like a great opportunity!");
-                            System.out.println(LIME_GREEN + "[1] [💡 Start a small business]");
-                            System.out.println(LIME_GREEN + "[2] [🚫 Decline and focus on your current job]");
+                            System.out.println(YELLOW + "\nEvent: 💼 Business Opportunity" + RESET);
+                            System.out.println(YELLOW + "\nA friend invites you to start a small business together. It sounds like a great opportunity!" + RESET);
+                            System.out.println(GREEN + "[1] [💡 Start a small business]" + RESET);
+                            System.out.println(GREEN + "[2] [🚫 Decline and focus on your current job]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice13 = onins.nextInt();
                         
@@ -486,8 +488,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You invested in a small business venture with your friend. It was risky but exciting.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You invested in a small business venture with your friend. It was risky but exciting.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice13 == 2) {
                                 int happinessGain = oninr.nextInt(16) + 10;
                                 int healthGain = oninr.nextInt(16) + 5;
@@ -495,18 +497,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You decided to decline the business opportunity, but you're happy with your current job.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You decided to decline the business opportunity, but you're happy with your current job.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 14:
-                            System.out.println(YELLOW + "\nEvent: 🏖️ Vacation Time");
-                            System.out.println(YELLOW + "\nYou’ve been working hard and now have some time off. It’s the perfect moment to unwind.");
-                            System.out.println(LIME_GREEN + "[1] [✈️ Go on a vacation abroad]");
-                            System.out.println(LIME_GREEN + "[2] [🏡 Stay home and relax]");
+                            System.out.println(YELLOW + "\nEvent: 🏖️ Vacation Time" + RESET);
+                            System.out.println(YELLOW + "\nYou’ve been working hard and now have some time off. It’s the perfect moment to unwind." + RESET);
+                            System.out.println(GREEN + "[1] [✈️ Go on a vacation abroad]" + RESET);
+                            System.out.println(GREEN + "[2] [🏡 Stay home and relax]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice14 = onins.nextInt();
                         
@@ -519,8 +521,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You took a vacation abroad and had a great time, but the trip was costly.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You took a vacation abroad and had a great time, but the trip was costly.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice14 == 2) {
                                 int happinessGain = oninr.nextInt(6) + 5;
                                 int healthGain = oninr.nextInt(11) + 8;
@@ -528,18 +530,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a relaxing staycation, recharging your health and happiness.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You had a relaxing staycation, recharging your health and happiness.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
 
                         case 15:
-                            System.out.println(YELLOW + "\nEvent: 📚 Book Reading");
-                            System.out.println(YELLOW + "\nYou find yourself with some free time and decide to pick up a book.");
-                            System.out.println(LIME_GREEN + "[1] [📖 Read a self-help book]");
-                            System.out.println(LIME_GREEN + "[2] [📚 Read a fiction novel]");
+                            System.out.println(YELLOW + "\nEvent: 📚 Book Reading" + RESET);
+                            System.out.println(YELLOW + "\nYou find yourself with some free time and decide to pick up a book." + RESET);
+                            System.out.println(GREEN + "[1] [📖 Read a self-help book]" + RESET);
+                            System.out.println(GREEN + "[2] [📚 Read a fiction novel]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice15 = onins.nextInt();
                         
@@ -550,8 +552,8 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You gained some useful knowledge and felt motivated after reading the book.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You gained some useful knowledge and felt motivated after reading the book.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
                             } else if (eventChoice15 == 2) {
                                 int happinessGain = oninr.nextInt(11) + 5;
                                 int healthLoss = oninr.nextInt(6) + 2;
@@ -559,18 +561,18 @@ public class LifeRPGv1 {
                                 stats[1] -= healthLoss;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[The novel was a thrilling escape, but you ended up staying up too late.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET);
+                                System.out.println(GREEN + "\n[The novel was a thrilling escape, but you ended up staying up too late.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 16:
-                            System.out.println(YELLOW + "\nEvent: 🐶 Adopt a Pet");
-                            System.out.println(YELLOW + "\nYou’re walking down the street when you see a cute dog that’s up for adoption.");
-                            System.out.println(LIME_GREEN + "[1] [🐕 Adopt the dog]");
-                            System.out.println(LIME_GREEN + "[2] [🚶‍♂️ Keep walking and avoid the temptation]");
+                            System.out.println(YELLOW + "\nEvent: 🐶 Adopt a Pet" + RESET);
+                            System.out.println(YELLOW + "\nYou’re walking down the street when you see a cute dog that’s up for adoption." + RESET);
+                            System.out.println(GREEN + "[1] [🐕 Adopt the dog]" + RESET);
+                            System.out.println(GREEN + "[2] [🚶‍♂️ Keep walking and avoid the temptation]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice16 = onins.nextInt();
                         
@@ -583,8 +585,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You adopted the dog, and it brought a lot of joy to your life, but the care costs add up.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You adopted the dog, and it brought a lot of joy to your life, but the care costs add up.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice16 == 2) {
                                 int happinessGain = oninr.nextInt(6) + 10;
                                 int healthGain = oninr.nextInt(11) + 5;
@@ -592,18 +594,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You decided not to adopt the dog, but you felt good about the decision and had a nice walk.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You decided not to adopt the dog, but you felt good about the decision and had a nice walk.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 17:
-                            System.out.println(YELLOW + "\nEvent: 🎤 Karaoke Night");
-                            System.out.println(YELLOW + "\nYour friends are going out for a karaoke night. It sounds like a blast!");
-                            System.out.println(LIME_GREEN + "[1] [🎶 Join the karaoke night]");
-                            System.out.println(LIME_GREEN + "[2] [🎧 Skip it and have a quiet evening at home]");
+                            System.out.println(YELLOW + "\nEvent: 🎤 Karaoke Night" + RESET);
+                            System.out.println(YELLOW + "\nYour friends are going out for a karaoke night. It sounds like a blast!" + RESET);
+                            System.out.println(GREEN + "[1] [🎶 Join the karaoke night]" + RESET);
+                            System.out.println(GREEN + "[2] [🎧 Skip it and have a quiet evening at home]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice17 = onins.nextInt();
                         
@@ -616,8 +618,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a fun night out singing with friends, but it was a little too loud.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You had a fun night out singing with friends, but it was a little too loud.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice17 == 2) {
                                 int happinessGain = oninr.nextInt(6) + 5;
                                 int healthGain = oninr.nextInt(11) + 5;
@@ -625,18 +627,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a peaceful night in, catching up on rest and recharging.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You had a peaceful night in, catching up on rest and recharging.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 18:
-                            System.out.println(YELLOW + "\nEvent: 🍷 Wine Tasting");
-                            System.out.println(YELLOW + "\nA local vineyard is offering a wine tasting event. You’ve never been to one before!");
-                            System.out.println(LIME_GREEN + "[1] [🍇 Go to the wine tasting event]");
-                            System.out.println(LIME_GREEN + "[2] [🥤 Skip the event and stay home]");
+                            System.out.println(YELLOW + "\nEvent: 🍷 Wine Tasting" + RESET);
+                            System.out.println(YELLOW + "\nA local vineyard is offering a wine tasting event. You’ve never been to one before!" + RESET);
+                            System.out.println(GREEN + "[1] [🍇 Go to the wine tasting event]" + RESET);
+                            System.out.println(GREEN + "[2] [🥤 Skip the event and stay home]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice18 = onins.nextInt();
                         
@@ -649,8 +651,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You enjoyed a delightful evening tasting wines, though it did take a toll on your health.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You enjoyed a delightful evening tasting wines, though it did take a toll on your health.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice18 == 2) {
                                 int happinessGain = oninr.nextInt(6) + 5;
                                 int healthGain = oninr.nextInt(11) + 10;
@@ -658,18 +660,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a quiet night in, resting and feeling rejuvenated.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You had a quiet night in, resting and feeling rejuvenated.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
 
                         case 19:
-                            System.out.println(YELLOW + "\nEvent: 🚴‍♂️ Weekend Bike Ride");
-                            System.out.println(YELLOW + "\nYou’ve been feeling the urge to get out and do something active this weekend.");
-                            System.out.println(LIME_GREEN + "[1] [🚴‍♂️ Go on a long bike ride]");
-                            System.out.println(LIME_GREEN + "[2] [🚶‍♂️ Take a walk in the park]");
+                            System.out.println(YELLOW + "\nEvent: 🚴‍♂️ Weekend Bike Ride" + RESET);
+                            System.out.println(YELLOW + "\nYou’ve been feeling the urge to get out and do something active this weekend." + RESET);
+                            System.out.println(GREEN + "[1] [🚴‍♂️ Go on a long bike ride]" + RESET);
+                            System.out.println(GREEN + "[2] [🚶‍♂️ Take a walk in the park]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice19 = onins.nextInt();
                         
@@ -682,8 +684,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You had an energetic bike ride, feeling refreshed and enjoying the outdoors.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You had an energetic bike ride, feeling refreshed and enjoying the outdoors.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice19 == 2) {
                                 int healthGain = oninr.nextInt(6) + 5;
                                 int happinessGain = oninr.nextInt(11) + 10;
@@ -691,18 +693,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a peaceful walk in the park, feeling calm and content.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You had a peaceful walk in the park, feeling calm and content.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 20:
-                            System.out.println(YELLOW + "\nEvent: 🎬 Movie Marathon");
-                            System.out.println(YELLOW + "\nYour friends are inviting you to a movie marathon to watch your favorite films.");
-                            System.out.println(LIME_GREEN + "[1] [🍿 Join the movie marathon]");
-                            System.out.println(LIME_GREEN + "[2] [🎥 Stay home and watch your favorite show]");
+                            System.out.println(YELLOW + "\nEvent: 🎬 Movie Marathon" + RESET);
+                            System.out.println(YELLOW + "\nYour friends are inviting you to a movie marathon to watch your favorite films." + RESET);
+                            System.out.println(GREEN + "[1] [🍿 Join the movie marathon]" + RESET);
+                            System.out.println(GREEN + "[2] [🎥 Stay home and watch your favorite show]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice20 = onins.nextInt();
                         
@@ -715,8 +717,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a fun time with your friends, but stayed up too late and snacked a bit too much.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You had a fun time with your friends, but stayed up too late and snacked a bit too much.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice20 == 2) {
                                 int happinessGain = oninr.nextInt(11) + 10;
                                 int healthGain = oninr.nextInt(6) + 5;
@@ -724,8 +726,8 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You enjoyed a relaxed evening, catching up on your favorite show and feeling at ease.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You enjoyed a relaxed evening, catching up on your favorite show and feeling at ease.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
@@ -733,9 +735,9 @@ public class LifeRPGv1 {
                         
                         case 21:
                             System.out.println(YELLOW + "\nEvent: 🎉 Weekend Party");
-                            System.out.println(YELLOW + "\nYour friends are throwing a big weekend party, and you're invited!");
-                            System.out.println(LIME_GREEN + "[1] [🎉 Go to the party]");
-                            System.out.println(LIME_GREEN + "[2] [🍂 Stay home and enjoy some quiet time]");
+                            System.out.println(YELLOW + "\nYour friends are throwing a big weekend party, and you're invited!" + RESET);
+                            System.out.println(GREEN + "[1] [🎉 Go to the party]" + RESET);
+                            System.out.println(GREEN + "[2] [🍂 Stay home and enjoy some quiet time]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice21 = onins.nextInt();
                         
@@ -748,8 +750,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a blast at the party, but you stayed out a little too late.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You had a blast at the party, but you stayed out a little too late.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice21 == 2) {
                                 int happinessGain = oninr.nextInt(6) + 5;
                                 int healthGain = oninr.nextInt(11) + 10;
@@ -757,18 +759,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a peaceful weekend at home, enjoying some much-needed rest.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You had a peaceful weekend at home, enjoying some much-needed rest.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 22:
-                            System.out.println(YELLOW + "\nEvent: 🧘‍♀️ Yoga Session");
-                            System.out.println(YELLOW + "\nYou're feeling a bit stressed, and a local studio is offering a yoga class.");
-                            System.out.println(LIME_GREEN + "[1] [🧘‍♀️ Join the yoga class]");
-                            System.out.println(LIME_GREEN + "[2] [🛋️ Skip the class and rest at home]");
+                            System.out.println(YELLOW + "\nEvent: 🧘‍♀️ Yoga Session" + RESET);
+                            System.out.println(YELLOW + "\nYou're feeling a bit stressed, and a local studio is offering a yoga class." + RESET);
+                            System.out.println(GREEN + "[1] [🧘‍♀️ Join the yoga class]" + RESET);
+                            System.out.println(GREEN + "[2] [🛋️ Skip the class and rest at home] "+ RESET);
                             System.out.print("Your choice: ");
                             int eventChoice22 = onins.nextInt();
                         
@@ -781,8 +783,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You feel rejuvenated after the yoga session and more at peace with yourself.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You feel rejuvenated after the yoga session and more at peace with yourself.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice22 == 2) {
                                 int healthGain = oninr.nextInt(6) + 5;
                                 int happinessGain = oninr.nextInt(6) + 5;
@@ -790,18 +792,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You took a well-deserved break at home, feeling relaxed and at ease.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You took a well-deserved break at home, feeling relaxed and at ease.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + GREEN + "[Happiness: +" + happinessGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 23:
-                            System.out.println(YELLOW + "\nEvent: 🏠 Home Renovation");
-                            System.out.println(YELLOW + "\nYour home needs some repairs, and you're thinking about renovating a few rooms.");
-                            System.out.println(LIME_GREEN + "[1] [🔨 Start the renovation project]");
-                            System.out.println(LIME_GREEN + "[2] [🏡 Skip the renovation for now]");
+                            System.out.println(YELLOW + "\nEvent: 🏠 Home Renovation" + RESET);
+                            System.out.println(YELLOW + "\nYour home needs some repairs, and you're thinking about renovating a few rooms." + RESET);
+                            System.out.println(GREEN + "[1] [🔨 Start the renovation project]" + RESET);
+                            System.out.println(GREEN + "[2] [🏡 Skip the renovation for now]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice23 = onins.nextInt();
                         
@@ -814,8 +816,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[The renovation was a huge success! Your home looks amazing, but the process was exhausting.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[The renovation was a huge success! Your home looks amazing, but the process was exhausting.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice23 == 2) {
                                 int happinessGain = oninr.nextInt(6) + 5;
                                 int healthGain = oninr.nextInt(16) + 10;
@@ -823,18 +825,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You decided to wait on the renovation, and you’ve been enjoying a peaceful and healthy time at home.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You decided to wait on the renovation, and you’ve been enjoying a peaceful and healthy time at home.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 24:
-                            System.out.println(YELLOW + "\nEvent: 🎮 Video Game Release");
-                            System.out.println(YELLOW + "\nA new video game you’ve been waiting for is finally released!");
-                            System.out.println(LIME_GREEN + "[1] [🎮 Buy the game and play it]");
-                            System.out.println(LIME_GREEN + "[2] [📵 Resist the temptation and focus on other activities]");
+                            System.out.println(YELLOW + "\nEvent: 🎮 Video Game Release" + RESET);
+                            System.out.println(YELLOW + "\nA new video game you’ve been waiting for is finally released!" + RESET);
+                            System.out.println(GREEN + "[1] [🎮 Buy the game and play it]" + RESET);
+                            System.out.println(GREEN + "[2] [📵 Resist the temptation and focus on other activities]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice24 = onins.nextInt();
                         
@@ -847,8 +849,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You had a great time playing the game, but you spent hours on it and neglected your health.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You had a great time playing the game, but you spent hours on it and neglected your health.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ]" + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice24 == 2) {
                                 int happinessGain = oninr.nextInt(6) + 5;
                                 int healthGain = oninr.nextInt(6) + 10;
@@ -856,18 +858,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You stayed productive and healthy by resisting the urge to game. You feel proud of yourself.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET);
+                                System.out.println(GREEN + "\n[You stayed productive and healthy by resisting the urge to game. You feel proud of yourself.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ] " + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 25:
-                            System.out.println(YELLOW + "\nEvent: 🦠 Caught a Cold");
-                            System.out.println(YELLOW + "\nYou’ve caught a cold, and you’re feeling under the weather.");
-                            System.out.println(LIME_GREEN + "[1] [💊 Take medicine and rest]");
-                            System.out.println(LIME_GREEN + "[2] [🤧 Try to work through it]");
+                            System.out.println(YELLOW + "\nEvent: 🦠 Caught a Cold" + RESET);
+                            System.out.println(YELLOW + "\nYou’ve caught a cold, and you’re feeling under the weather." + RESET);
+                            System.out.println(GREEN + "[1] [💊 Take medicine and rest]" + RESET);
+                            System.out.println(GREEN + "[2] [🤧 Try to work through it]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice25 = onins.nextInt();
                         
@@ -878,8 +880,8 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[3] -= cost;
                         
-                                System.out.println(LIME_GREEN + "\n[You rested and took the medicine, and you’re starting to feel better.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You rested and took the medicine, and you’re starting to feel better.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Cost: - " + cost + " ]" + RESET);
                             } else if (eventChoice25 == 2) {
                                 int healthLoss = oninr.nextInt(16) + 10;
                                 int happinessLoss = oninr.nextInt(6) + 5;
@@ -887,7 +889,7 @@ public class LifeRPGv1 {
                                 stats[1] -= healthLoss;
                                 stats[2] -= happinessLoss;
                         
-                                System.out.println(LIME_GREEN + "\n[You pushed through, but your cold made it difficult to focus and feel happy.]");
+                                System.out.println(GREEN + "\n[You pushed through, but your cold made it difficult to focus and feel happy.]" + RESET);
                                 System.out.println(BRIGHT_RED + "[Health: -" + healthLoss + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
@@ -895,10 +897,10 @@ public class LifeRPGv1 {
                             break;
 
                         case 26:
-                            System.out.println(YELLOW + "\nEvent: 🎰 Lottery Win!");
-                            System.out.println(YELLOW + "\nYou receive an unexpected email saying you’ve won the lottery!");
-                            System.out.println(LIME_GREEN + "[1] [💰 Claim your lottery winnings]");
-                            System.out.println(LIME_GREEN + "[2] [❌ Decline the lottery winnings]");
+                            System.out.println(YELLOW + "\nEvent: 🎰 Lottery Win!" + RESET);
+                            System.out.println(YELLOW + "\nYou receive an unexpected email saying you’ve won the lottery!" + RESET);
+                            System.out.println(GREEN + "[1] [💰 Claim your lottery winnings]");
+                            System.out.println(GREEN + "[2] [❌ Decline the lottery winnings]");
                             System.out.print("Your choice: ");
                             int eventChoice26 = onins.nextInt();
                         
@@ -911,8 +913,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] += moneyGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You claimed your lottery winnings, and the money brought you joy, but the stress of sudden wealth took a toll.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ] " + RESET + GREEN + "[Money: +" + moneyGain + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You claimed your lottery winnings, and the money brought you joy, but the stress of sudden wealth took a toll.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ] " + RESET + GREEN + "[Money: +" + moneyGain + " ]" + RESET);
                             } else if (eventChoice26 == 2) {
                                 int healthGain = oninr.nextInt(6) + 5;
                                 int happinessLoss = oninr.nextInt(11) + 10;
@@ -920,18 +922,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] -= happinessLoss;
                         
-                                System.out.println(LIME_GREEN + "\n[You declined the lottery winnings, feeling that the money wasn’t worth the hassle. You feel healthier but a bit sad.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You declined the lottery winnings, feeling that the money wasn’t worth the hassle. You feel healthier but a bit sad.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
 
                         case 27:
-                            System.out.println(YELLOW + "\nEvent: 🌟 Unexpected Gift");
-                            System.out.println(YELLOW + "\nA mysterious stranger approaches you and gives you a small package. Inside is a rare, valuable artifact.");
-                            System.out.println(LIME_GREEN + "[1] [🎁 Accept the gift and sell it]");
-                            System.out.println(LIME_GREEN + "[2] [🙏 Refuse the gift]");
+                            System.out.println(YELLOW + "\nEvent: 🌟 Unexpected Gift" + RESET);
+                            System.out.println(YELLOW + "\nA mysterious stranger approaches you and gives you a small package. Inside is a rare, valuable artifact." + RESET);
+                            System.out.println(GREEN + "[1] [🎁 Accept the gift and sell it]" + RESET);
+                            System.out.println(GREEN + "[2] [🙏 Refuse the gift]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice27 = onins.nextInt();
                         
@@ -944,7 +946,7 @@ public class LifeRPGv1 {
                                 stats[2] -= happinessLoss;
                                 stats[3] += moneyGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You accepted the gift, sold it, and made a lot of money. However, the guilt of profiting from something so mysterious weighs on you.]");
+                                System.out.println(GREEN + "\n[You accepted the gift, sold it, and made a lot of money. However, the guilt of profiting from something so mysterious weighs on you.]" + RESET);
                                 System.out.println(BRIGHT_RED + "[Happiness: -" + happinessLoss + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ] " + RESET + GREEN + "[Money: +" + moneyGain + " ]" + RESET);
                             } else if (eventChoice27 == 2) {
                                 int happinessGain = oninr.nextInt(11) + 10;
@@ -953,18 +955,18 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] += happinessGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You refused the gift, and your decision brought a sense of peace and happiness.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + LIGHT_GREEN + "[Health: +" + healthGain + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You refused the gift, and your decision brought a sense of peace and happiness.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + GREEN + "[Health: +" + healthGain + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
                             break;
                         
                         case 28:
-                            System.out.println(YELLOW + "\nEvent: 💎 Found Treasure");
-                            System.out.println(YELLOW + "\nWhile walking on the beach, you find a hidden treasure chest half-buried in the sand.");
-                            System.out.println(LIME_GREEN + "[1] [🔑 Open the treasure chest]");
-                            System.out.println(LIME_GREEN + "[2] [🚶‍♂️ Leave the treasure and walk away]");
+                            System.out.println(YELLOW + "\nEvent: 💎 Found Treasure" + RESET);
+                            System.out.println(YELLOW + "\nWhile walking on the beach, you find a hidden treasure chest half-buried in the sand." + RESET);
+                            System.out.println(GREEN + "[1] [🔑 Open the treasure chest]" + RESET);
+                            System.out.println(GREEN + "[2] [🚶‍♂️ Leave the treasure and walk away]" + RESET);
                             System.out.print("Your choice: ");
                             int eventChoice28 = onins.nextInt();
                         
@@ -977,8 +979,8 @@ public class LifeRPGv1 {
                                 stats[2] += happinessGain;
                                 stats[3] += moneyGain;
                         
-                                System.out.println(LIME_GREEN + "\n[You opened the treasure chest and found a fortune! The wealth brought you joy, but the stress of finding it was overwhelming.]");
-                                System.out.println(LIGHT_GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ] " + RESET + GREEN + "[Money: +" + moneyGain + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You opened the treasure chest and found a fortune! The wealth brought you joy, but the stress of finding it was overwhelming.]" + RESET);
+                                System.out.println(GREEN + "[Happiness: +" + happinessGain + " ] " + RESET + BRIGHT_RED + "[Health: -" + healthLoss + " ] " + RESET + GREEN + "[Money: +" + moneyGain + " ]" + RESET);
                             } else if (eventChoice28 == 2) {
                                 int healthGain = oninr.nextInt(11) + 10;
                                 int happinessLoss = oninr.nextInt(6) + 5;
@@ -986,8 +988,8 @@ public class LifeRPGv1 {
                                 stats[1] += healthGain;
                                 stats[2] -= happinessLoss;
                         
-                                System.out.println(LIME_GREEN + "\n[You walked away from the treasure, and while your health improved, you couldn’t help but feel a little regret.]");
-                                System.out.println(LIGHT_GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
+                                System.out.println(GREEN + "\n[You walked away from the treasure, and while your health improved, you couldn’t help but feel a little regret.]" + RESET);
+                                System.out.println(GREEN + "[Health: +" + healthGain + " ] " + RESET + BRIGHT_RED + "[Happiness: -" + happinessLoss + " ]" + RESET);
                             } else {
                                 System.out.println("[Invalid choice. Please select a valid option.]");
                             }
@@ -1023,11 +1025,11 @@ public class LifeRPGv1 {
                                     job = "Programmer";
                                     int healthGain = oninr.nextInt(16) + 5;
                                     int happinessGain = oninr.nextInt(26) + 25;
-                                    int pay = oninr.nextInt(7501) + 3500;
+                                    int payR = oninr.nextInt(7501) + 3500;
 
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
                                     
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice1 == 2) {
@@ -1049,11 +1051,12 @@ public class LifeRPGv1 {
                                     job = "Teacher";
                                     int healthGain = oninr.nextInt(11) + 5;
                                     int happinessGain = oninr.nextInt(21) + 15;
-                                    int pay = oninr.nextInt(6001) + 2000;
+                                    int payR = oninr.nextInt(6001) + 2000;
                             
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
+                                    pay = payR;
                             
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice2 == 2) {
@@ -1075,11 +1078,12 @@ public class LifeRPGv1 {
                                     job = "Designer";
                                     int healthGain = oninr.nextInt(6) + 3;
                                     int happinessGain = oninr.nextInt(31) + 20;
-                                    int pay = oninr.nextInt(7001) + 4000;
+                                    int payR = oninr.nextInt(7001) + 4000;
                             
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
+                                    pay = payR;
                             
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice3 == 2) {
@@ -1101,11 +1105,12 @@ public class LifeRPGv1 {
                                     job = "Chef";
                                     int healthGain = oninr.nextInt(21) + 10;
                                     int happinessGain = oninr.nextInt(16) + 20;
-                                    int pay = oninr.nextInt(8001) + 5000;
+                                    int payR = oninr.nextInt(8001) + 5000;
                             
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
+                                    pay = payR;
                             
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice4 == 2) {
@@ -1127,11 +1132,12 @@ public class LifeRPGv1 {
                                     job = "Photographer";
                                     int healthGain = oninr.nextInt(10) + 5;
                                     int happinessGain = oninr.nextInt(26) + 15;
-                                    int pay = oninr.nextInt(6001) + 3500;
+                                    int payR = oninr.nextInt(6001) + 3500;
                             
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
+                                    pay = payR;
                             
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice5 == 2) {
@@ -1153,11 +1159,12 @@ public class LifeRPGv1 {
                                     job = "Engineer";
                                     int healthGain = oninr.nextInt(12) + 5;
                                     int happinessGain = oninr.nextInt(21) + 10;
-                                    int pay = oninr.nextInt(10001) + 8000;
+                                    int payR = oninr.nextInt(10001) + 8000;
                             
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
+                                    pay = payR;
                             
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice6 == 2) {
@@ -1179,11 +1186,12 @@ public class LifeRPGv1 {
                                     job = "Scientist";
                                     int healthGain = oninr.nextInt(16) + 5;
                                     int happinessGain = oninr.nextInt(11) + 15;
-                                    int pay = oninr.nextInt(12001) + 10000;
+                                    int payR = oninr.nextInt(12001) + 10000;
                             
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
+                                    pay = payR;
                             
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice7 == 2) {
@@ -1205,11 +1213,12 @@ public class LifeRPGv1 {
                                     job = "Nurse";
                                     int healthGain = oninr.nextInt(21) + 10;
                                     int happinessGain = oninr.nextInt(16) + 15;
-                                    int pay = oninr.nextInt(5001) + 3000;
+                                    int payR = oninr.nextInt(5001) + 3000;
                             
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
+                                    pay = payR;
                             
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice8 == 2) {
@@ -1231,11 +1240,12 @@ public class LifeRPGv1 {
                                     job = "Writer";
                                     int healthGain = oninr.nextInt(11) + 3;
                                     int happinessGain = oninr.nextInt(31) + 20;
-                                    int pay = oninr.nextInt(4001) + 2500;
+                                    int payR = oninr.nextInt(4001) + 2500;
                             
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
+                                    pay = payR;
                             
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice9 == 2) {
@@ -1257,11 +1267,12 @@ public class LifeRPGv1 {
                                     job = "Lawyer";
                                     int healthGain = oninr.nextInt(8) + 4;
                                     int happinessGain = oninr.nextInt(21) + 12;
-                                    int pay = oninr.nextInt(15001) + 12000;
+                                    int payR = oninr.nextInt(15001) + 12000;
                             
                                     stats[1] -= healthGain;
                                     stats[2] += happinessGain;
-                                    stats[3] += pay;
+                                    stats[3] += payR;
+                                    pay = payR;
                             
                                     System.out.println(GREEN + "\n[You accepted the job offer! You are now working as " + job + " with a pay of ₱" + pay + " per year.]" + RESET);
                                 } else if (jobChoice10 == 2) {
@@ -1294,7 +1305,7 @@ public class LifeRPGv1 {
                     break;
 
                 case 3:
-                    System.out.println(YELLOW + bold + "[--- Shop ---]" + reset + RESET);
+                    System.out.println(YELLOW + bold + "\n[--- Shop ---]" + reset + RESET);
 
                     System.out.println(GREEN + "\n[1] " + bold + "[Health Potion] [+30 Health] [-₱100]" + reset + RESET);
                     System.out.println(GREEN + "[2] " + bold + "[Happiness Book [+20 Happiness] [-₱150]" + reset + RESET);
@@ -1330,7 +1341,7 @@ public class LifeRPGv1 {
                     break;
 
                 case 4:
-                    System.out.println(YELLOW + "[Welcome to the Color Guessing Game]" + RESET);
+                    System.out.println(YELLOW + "\n[Welcome to the Color Guessing Game]" + RESET);
 
                     boolean playAgain = true;
 
@@ -1392,7 +1403,7 @@ public class LifeRPGv1 {
                     break;
 
                 case 5:
-                    String retireText = "[You have retired. Thank you for playing!]";
+                    String retireText = "\n[You have retired. Thank you for playing!]";
                     for (int i = 0; i < retireText.length(); i++) {
                         System.out.print(retireText.charAt(i));
                         try {
