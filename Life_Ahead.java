@@ -1307,7 +1307,7 @@ public class Life_Ahead {
                                 if (stats[3] >= 150) {
                                     stats[2] = Math.min(100, stats[2] + 20);
                                     stats[3] -= 150;
-                                    System.out.println(GREEN + "\n[You bought a Happiness Book. Feeling happy!]" + RESET);
+                                    System.out.println(GREEN + "\n[You bought a     . Feeling happy!]" + RESET);
                                 } else {
                                     System.out.println(BRIGHT_RED + "[Not enough money!]" + RESET);
                                 }
